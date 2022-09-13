@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<h4 class="d-flex justify-content-between mb-4">
+  <span>Posts</span>
+  <%= link_to "New post", new_post_path, class: 'btn btn-primary' %>
+</h4>
 
 <h1>Posts</h1>
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <%= link_to post do %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class='card-title'><%= post.title %></h5>
+          <p><%= post.description %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
-<%= link_to "New post", new_post_path %>
