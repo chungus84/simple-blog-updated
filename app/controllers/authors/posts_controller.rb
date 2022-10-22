@@ -5,6 +5,7 @@ module Authors
     # GET /posts
     def index
       @posts = current_author.posts
+
     end
 
 
@@ -16,6 +17,7 @@ module Authors
 
     # GET /posts/1/edit
     def edit
+      @paragraph = @post.elements.build(element_type: 'paragraph')
     end
 
     # POST /posts
